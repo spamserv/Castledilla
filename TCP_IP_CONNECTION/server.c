@@ -31,11 +31,7 @@ void * receiveServerMessage(void * socket) {
   if (ret < 0) {
    printf("Error receiving data!\n");
   } else {
-<<<<<<< HEAD
    printf("client says: ");
-=======
-   printf("cliendtafs: ");
->>>>>>> 291f231737f96ecaef7a53ac7d320bd48ffb9af1
    fputs(buffer, stdout);
    //printf("\n");
   }
