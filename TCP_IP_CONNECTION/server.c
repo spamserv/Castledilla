@@ -26,11 +26,16 @@ void * receiveServerMessage(void * socket) {
  sockfd = (int) socket;
  memset(buffer, 0, BUF_SIZE);
  for (;;) {
+
   ret = recvfrom(sockfd, buffer, BUF_SIZE, 0, NULL, NULL);
   if (ret < 0) {
    printf("Error receiving data!\n");
   } else {
+<<<<<<< HEAD
    printf("client says: ");
+=======
+   printf("cliendtafs: ");
+>>>>>>> 291f231737f96ecaef7a53ac7d320bd48ffb9af1
    fputs(buffer, stdout);
    //printf("\n");
   }
