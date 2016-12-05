@@ -14,13 +14,14 @@
 #include"netinet/in.h"
 #include"netdb.h"
 #include"pthread.h"
+#include"client.h"
 
 #define PORT 4444
 #define BUF_SIZE 2000
 static const char *JSON_STRING =
 		"{\"player1\":{\"castle\":\"40\",\"fence\":\"10\",\"brick\":\"5\",\"crystal\":\"5\",\"weapon\":\"5\",\"schoolar\":\"1\",\"mage\":\"1\",\"soldier\":\"1\"},\"player2\":{\"castle\":\"40\",\"fence\":\"10\",\"brick\":\"5\",\"crystal\":\"5\",\"weapon\":\"5\",\"schoolar\":\"1\",\"mage\":\"1\",\"soldier\":\"1\"}}";
 
-void * receiveMessage(void * socket) {
+void * receiveClientMessage(void * socket) {
  int sockfd, ret;
  char buffer[BUF_SIZE];
  sockfd = (int) socket;
@@ -37,24 +38,24 @@ void * receiveMessage(void * socket) {
  }
 }
 
-int main(int argc, char**argv) {
+int connectToHost(char * serverAddr) {
  struct sockaddr_in addr, cl_addr;
  int sockfd, ret;
  char buffer[BUF_SIZE];
- char * serverAddr;
+
  pthread_t rThread;
 
- if (argc < 2) {
-  printf("usage: client < ip address >\n");
-  exit(1);
- }
+ //if (argc < 2) {
+  //printf("usage: client < ip address >\n");
+  //exit(1);
+ //}
 
- serverAddr = argv[1];
+ //serverAddr = argv[1];
 
  sockfd = socket(AF_INET, SOCK_STREAM, 0);
  if (sockfd < 0) {
   printf("Error creating socket!\n");
-  exit(1);
+  return 1;
  }
  printf("Socket created...\n");
 
@@ -66,7 +67,7 @@ int main(int argc, char**argv) {
  ret = connect(sockfd, (struct sockaddr *) &addr, sizeof(addr));
  if (ret < 0) {
   printf("Error connecting to the server!\n");
-  exit(1);
+  return 1;
  }
  printf("Connected to the server...\n");
 
@@ -74,10 +75,10 @@ int main(int argc, char**argv) {
  printf("Enter your messages one by one and press return key!\n");
 
  //creating a new thread for receiving messages from the server
- ret = pthread_create(&rThread, NULL, receiveMessage, (void *) sockfd);
+ ret = pthread_create(&rThread, NULL, receiveClientMessage, (void *) sockfd);
  if (ret) {
   printf("ERROR: Return Code from pthread_create() is %d\n", ret);
-  exit(1);
+  return 1;
  }
 
  while (fgets(buffer, BUF_SIZE, stdin) != NULL) {
