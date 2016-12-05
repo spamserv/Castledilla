@@ -17,6 +17,8 @@
 
 #define PORT 4444
 #define BUF_SIZE 2000
+static const char *JSON_STRING =
+		"{\"player1\":{\"castle\":\"40\",\"fence\":\"10\",\"brick\":\"5\",\"crystal\":\"5\",\"weapon\":\"5\",\"schoolar\":\"1\",\"mage\":\"1\",\"soldier\":\"1\"},\"player2\":{\"castle\":\"40\",\"fence\":\"10\",\"brick\":\"5\",\"crystal\":\"5\",\"weapon\":\"5\",\"schoolar\":\"1\",\"mage\":\"1\",\"soldier\":\"1\"}}";
 
 void * receiveMessage(void * socket) {
  int sockfd, ret;

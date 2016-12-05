@@ -29,7 +29,7 @@ void * receiveMessage(void * socket) {
   if (ret < 0) {
    printf("Error receiving data!\n");
   } else {
-   printf("cliendtafs: ");
+   printf("client: ");
    fputs(buffer, stdout);
    //printf("\n");
   }
