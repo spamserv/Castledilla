@@ -35,7 +35,7 @@ Castledilla: $(OBJS) $(USER_OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Castledilla
+	-$(RM) $(OBJS)$(C_DEPS)$(EXECUTABLES) Castledilla
 	-@echo ' '
 
 .PHONY: all clean dependents

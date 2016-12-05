@@ -1,1 +1,1 @@
-TCP_IP_CONNECTION/server.o: ../TCP_IP_CONNECTION/server.c
+TCP_IP_CONNECTION/server.d: ../TCP_IP_CONNECTION/server.c

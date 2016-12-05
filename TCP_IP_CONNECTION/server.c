@@ -24,11 +24,12 @@ void * receiveMessage(void * socket) {
  sockfd = (int) socket;
  memset(buffer, 0, BUF_SIZE);
  for (;;) {
+
   ret = recvfrom(sockfd, buffer, BUF_SIZE, 0, NULL, NULL);
   if (ret < 0) {
    printf("Error receiving data!\n");
   } else {
-   printf("client: ");
+   printf("cliendtafs: ");
    fputs(buffer, stdout);
    //printf("\n");
   }
