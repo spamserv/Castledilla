@@ -44,11 +44,11 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.695504874.1881578938" name="client.c" rcbsApplicability="disable" resourcePath="TCP_IP_CONNECTION/client.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864.79040710">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864.79040710" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864"/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.695504874.1504497425" name="server.c" rcbsApplicability="disable" resourcePath="TCP_IP_CONNECTION/server.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864.423019941">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864.423019941" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1959367864"/>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="TCP_IP_CONNECTION/client.c|client.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="client.c|TCP_IP_CONNECTION/client.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

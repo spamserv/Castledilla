@@ -9,6 +9,7 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include TCP_IP_CONNECTION/subdir.mk
+-include PARSE/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -35,7 +36,7 @@ Castledilla: $(OBJS) $(USER_OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(EXECUTABLES) Castledilla
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Castledilla
 	-@echo ' '
 
 .PHONY: all clean dependents
