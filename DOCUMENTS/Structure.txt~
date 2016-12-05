@@ -8,7 +8,6 @@ int schoolar;
 int mage;
 int soldier;
 };
-
 struct card{
 char* card_name;
 int cost_value;
