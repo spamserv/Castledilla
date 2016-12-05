@@ -13,12 +13,14 @@
 #include"string.h"
 #include"netinet/in.h"
 #include"pthread.h"
+#include"server.h"
 
 #define PORT 4444
 #define BUF_SIZE 2000
 #define CLADDR_LEN 100
 
-void * receiveMessage(void * socket) {
+
+void * receiveServerMessage(void * socket) {
  int sockfd, ret;
  char buffer[BUF_SIZE];
  sockfd = (int) socket;
@@ -28,14 +30,14 @@ void * receiveMessage(void * socket) {
   if (ret < 0) {
    printf("Error receiving data!\n");
   } else {
-   printf("client: ");
+   printf("client says: ");
    fputs(buffer, stdout);
    //printf("\n");
   }
  }
 }
 
-void main() {
+void createConnection() {
  struct sockaddr_in addr, cl_addr;
  int sockfd, len, ret, newsockfd;
  char buffer[BUF_SIZE];
@@ -80,7 +82,7 @@ void main() {
  printf("Enter your messages one by one and press return key!\n");
 
  //creating a new thread for receiving messages from the client
- ret = pthread_create(&rThread, NULL, receiveMessage, (void *) newsockfd);
+ ret = pthread_create(&rThread, NULL, receiveServerMessage, (void *) newsockfd);
  if (ret) {
   printf("ERROR: Return Code from pthread_create() is %d\n", ret);
   exit(1);
